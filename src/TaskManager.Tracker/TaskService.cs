@@ -8,15 +8,17 @@ namespace TaskManager.Tracker
     internal sealed class TaskService : ITaskService
     {
         private readonly ITaskRecordRepository _taskRecordRepository;
-        
         private readonly ITaskValidationService _taskValidationService;
+        private readonly IUnitOfWork _unitOfWork;
 
         public TaskService(
             ITaskRecordRepository taskRecordRepository,
-            ITaskValidationService taskValidationService)
+            ITaskValidationService taskValidationService,
+            IUnitOfWork unitOfWork)
         {
             _taskRecordRepository = taskRecordRepository;
             _taskValidationService = taskValidationService;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<TaskResponseDto<GetTaskResponseDto>> GetTasks()
@@ -58,7 +60,7 @@ namespace TaskManager.Tracker
             };
             
             _taskRecordRepository.AddTaskRecord(taskRecord);
-            await _taskRecordRepository.SaveChanges();
+            await _unitOfWork.SaveChanges();
             
             return new TaskResponseDto<CreateTaskResponseDto>
             {
@@ -68,7 +70,7 @@ namespace TaskManager.Tracker
 
         public async Task<TaskResponseDto<CompleteTaskResponseDto>> CompleteTask(CompleteTaskRequestDto requestDto)
         {
-            TaskRecord task = await _taskRecordRepository.GetTaskRecordById(requestDto.Id);
+            var task = await _taskRecordRepository.GetTaskRecordById(requestDto.Id);
             if (task == null)
             {
                 return new TaskResponseDto<CompleteTaskResponseDto>
@@ -79,19 +81,18 @@ namespace TaskManager.Tracker
 
             task.IsCompleted = true;
 
-            _taskRecordRepository.UpdateTaskRecord(task);
-            await _taskRecordRepository.SaveChanges();
+            await _unitOfWork.SaveChanges();
 
             return new TaskResponseDto<CompleteTaskResponseDto>();
         }
 
         public async Task<TaskResponseDto<RemoveTaskResponseDto>> RemoveTask(RemoveTaskRequestDto requestDto)
         {
-            TaskRecord task = await _taskRecordRepository.GetTaskRecordById(requestDto.Id);
+            var task = await _taskRecordRepository.GetTaskRecordById(requestDto.Id);
             if (task != null)
             {
                 _taskRecordRepository.RemoveTaskRecord(task);
-                await _taskRecordRepository.SaveChanges();
+                await _unitOfWork.SaveChanges();
             }
 
             return new TaskResponseDto<RemoveTaskResponseDto>();

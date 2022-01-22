@@ -31,12 +31,7 @@ namespace TaskManager.DataAccess
 
         public async Task<TaskRecord> GetTaskRecordById(int id)
         {
-            return await _dbContext.TaskRecords.FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public void UpdateTaskRecord(TaskRecord taskRecord)
-        {
-            _dbContext.TaskRecords.Update(taskRecord);
+            return await _dbContext.TaskRecords.FindAsync( id);
         }
 
         public void RemoveTaskRecord(TaskRecord task)

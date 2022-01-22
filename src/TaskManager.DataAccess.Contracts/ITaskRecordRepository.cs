@@ -8,12 +8,8 @@ namespace TaskManager.DataAccess.Contracts
         Task<IEnumerable<TaskRecord>> GetTaskRecords();
         
         void AddTaskRecord(TaskRecord taskRecord);
-        
-        Task SaveChanges();
-        
+
         Task<TaskRecord> GetTaskRecordById(int id);
-        
-        void UpdateTaskRecord(TaskRecord taskRecord);
         
         void RemoveTaskRecord(TaskRecord task);
     }

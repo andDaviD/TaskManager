@@ -10,7 +10,8 @@ namespace TaskManager.DataAccess
         {
             return services
                 .AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString))
-                .AddScoped<ITaskRecordRepository, TaskRecordRepository>();
+                .AddScoped<ITaskRecordRepository, TaskRecordRepository>()
+                .AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
