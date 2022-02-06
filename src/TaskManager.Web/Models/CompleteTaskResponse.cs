@@ -1,4 +1,3 @@
-﻿namespace TaskManager.Web.Models
-{
-    internal sealed record CompleteTaskResponse();
-}
+﻿namespace TaskManager.Web.Models;
+
+internal sealed record CompleteTaskResponse;

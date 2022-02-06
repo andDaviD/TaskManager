@@ -1,8 +1,21 @@
-**/.idea/
-**/*.user
-**/*.user
-**/bin/
-**/obj/
-**/packages/
+# IDE folders
+.idea/
+.vs/
+_ReSharper.Caches/
 
-build/**
+# Build folders
+/.build/tools/
+/build/
+bin/
+
+# Packages folders
+/packages
+
+# Other files
+*.log
+*.user
+
+
+**/obj/
+
+

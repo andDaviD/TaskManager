@@ -1,25 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskManager.DataAccess.Contracts;
 
-namespace TaskManager.DataAccess
+namespace TaskManager.DataAccess;
+
+public class ApplicationDbContext : DbContext
 {
-    public class ApplicationDbContext : DbContext
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
-        
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<TaskRecord>()
-                .Property(b => b.Title)
-                .HasMaxLength(250);
-            modelBuilder.Entity<TaskRecord>()
-                .Property(b => b.Description)
-                .HasMaxLength(1000);
-        }
-        
-        public DbSet<TaskRecord> TaskRecords { get; set; }
+    }
+
+    public DbSet<TaskRecord> TaskRecords { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<TaskRecord>()
+            .Property(b => b.Title)
+            .HasMaxLength(250);
+        modelBuilder.Entity<TaskRecord>()
+            .Property(b => b.Description)
+            .HasMaxLength(1000);
     }
 }

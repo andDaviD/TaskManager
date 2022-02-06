@@ -1,8 +1,15 @@
 <Project>
-	
+
+    <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), .gitignore))\.props\DotNetCore.props"/>
+
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <LangVersion>10</LangVersion>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+
+        <Root>$(MSBuildThisFileDirectory)</Root>
+        <StyleRoot>$(Root).style\</StyleRoot>
+        <OutputRoot>$(Root)build\$(Configuration)\</OutputRoot>
+		<BaseIntermediateOutputPath>$(Root)build\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+        <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
     </PropertyGroup>
 
 </Project>

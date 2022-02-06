@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace TaskManager.DataAccess.Contracts
+namespace TaskManager.DataAccess.Contracts;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        Task SaveChanges();
-    }
+    Task SaveChanges();
 }

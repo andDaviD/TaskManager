@@ -2,7 +2,7 @@
 
 namespace TaskManager.Web.Models;
 
-public sealed class CompleteTaskRequest
+public sealed class CloseTaskRequest
 {
     [Required]
     public int Id { get; init; }

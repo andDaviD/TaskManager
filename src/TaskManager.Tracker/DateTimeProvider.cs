@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace TaskManager.Tracker
+namespace TaskManager.Tracker;
+
+internal sealed class DateTimeProvider : IDateTimeProvider
 {
-    internal sealed class DateTimeProvider : IDateTimeProvider
-    {
-        public DateTime Now => DateTime.Now;
-    }
+    public DateTime Now => DateTime.Now;
 }

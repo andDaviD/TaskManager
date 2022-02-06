@@ -1,21 +1,17 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TaskManager.Web
+namespace TaskManager.Web;
+
+internal static class MapperCollectionExtensions
 {
-    internal static class MapperExtension
+    public static IServiceCollection AddMapper(this IServiceCollection services)
     {
-        public static IServiceCollection AddMapper(this IServiceCollection services)
-        {
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new MappingProfile());
-            });
+        var mappingConfig = new MapperConfiguration(mc => { mc.AddProfile(new MappingProfile()); });
 
-            IMapper mapper = mappingConfig.CreateMapper();
-            services.AddSingleton(mapper);
+        var mapper = mappingConfig.CreateMapper();
+        services.AddSingleton(mapper);
 
-            return services;
-        }
+        return services;
     }
 }

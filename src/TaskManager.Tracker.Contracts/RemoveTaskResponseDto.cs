@@ -1,4 +1,3 @@
-﻿namespace TaskManager.Tracker.Contracts
-{
-    public sealed record RemoveTaskResponseDto();
-}
+﻿namespace TaskManager.Tracker.Contracts;
+
+public sealed record RemoveTaskResponseDto;

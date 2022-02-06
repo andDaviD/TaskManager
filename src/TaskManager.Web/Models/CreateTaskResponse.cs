@@ -1,4 +1,3 @@
-﻿namespace TaskManager.Web.Models
-{
-    internal sealed record CreateTaskResponse();
-}
+﻿namespace TaskManager.Web.Models;
+
+internal sealed record CreateTaskResponse;

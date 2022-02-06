@@ -2,21 +2,20 @@
 using TaskManager.Tracker.Contracts;
 using TaskManager.Web.Models;
 
-namespace TaskManager.Web
+namespace TaskManager.Web;
+
+internal sealed class MappingProfile : Profile
 {
-    internal sealed class MappingProfile : Profile
+    public MappingProfile()
     {
-        public MappingProfile()
-        {
-            CreateMap<CompleteTaskRequest, CompleteTaskRequestDto>();
-            CreateMap<CompleteTaskResponseDto, CompleteTaskResponse>();
-            CreateMap<CreateTaskRequest, CreateTaskRequestDto>();
-            CreateMap<CreateTaskResponseDto, CreateTaskResponse>();
-            CreateMap<GetTaskResponseDto, GetTaskResponse>();
-            CreateMap<RemoveTaskRequest, RemoveTaskRequestDto>();
-            CreateMap<RemoveTaskRequestDto, RemoveTaskRequest>();
-            CreateMap<TaskRecordDto, TaskRecord>();
-            CreateMap(typeof(TaskResponseDto<>), typeof(TaskResponse<>));
-        }
+        CreateMap<CompleteTaskRequest, CompleteTaskRequestDto>();
+        CreateMap<CompleteTaskResponseDto, CompleteTaskResponse>();
+        CreateMap<CreateTaskRequest, CreateTaskRequestDto>();
+        CreateMap<CreateTaskResponseDto, CreateTaskResponse>();
+        CreateMap<GetTaskResponseDto, GetTaskResponse>();
+        CreateMap<CloseTaskRequest, RemoveTaskRequestDto>();
+        CreateMap<RemoveTaskRequestDto, CloseTaskRequest>();
+        CreateMap<TaskRecordDto, TaskRecord>();
+        CreateMap(typeof(TaskResponseDto<>), typeof(TaskResponse<>));
     }
 }

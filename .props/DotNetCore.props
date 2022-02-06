@@ -1,0 +1,11 @@
+<Project>
+
+  <Import Project="CSharp.props" />
+  <Import Project="StyleCop.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+  </PropertyGroup>
+
+</Project>

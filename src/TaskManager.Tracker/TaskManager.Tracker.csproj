@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    
+
     <ItemGroup>
-        <ProjectReference Include="..\TaskManager.DataAccess.Contracts\TaskManager.DataAccess.Contracts.csproj" />
-        <ProjectReference Include="..\TaskManager.Tracker.Contracts\TaskManager.Tracker.Contracts.csproj" />
+        <ProjectReference Include="..\TaskManager.DataAccess.Contracts\TaskManager.DataAccess.Contracts.csproj"/>
+        <ProjectReference Include="..\TaskManager.Tracker.Contracts\TaskManager.Tracker.Contracts.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -17,5 +17,5 @@
             <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
-    
+
 </Project>

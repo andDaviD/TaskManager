@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace TaskManager.Tracker
+namespace TaskManager.Tracker;
+
+internal interface IDateTimeProvider
 {
-    internal interface IDateTimeProvider
-    {
-        DateTime Now { get; }
-    }
+    DateTime Now { get; }
 }

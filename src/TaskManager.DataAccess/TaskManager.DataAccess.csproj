@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-   
+
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TaskManager.DataAccess.Contracts\TaskManager.DataAccess.Contracts.csproj" />
-    </ItemGroup>    
+        <ProjectReference Include="..\TaskManager.DataAccess.Contracts\TaskManager.DataAccess.Contracts.csproj"/>
+    </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
 <Project>
-	
-	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))" />
-	
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))"/>
+
     <PropertyGroup>
-		<OutDir>$(SolutionDir)\build\src\$(Configuration)\$(TargetFramework)</OutDir>
+        <OutDir>$(SolutionDir)\build\src\$(Configuration)\$(TargetFramework)</OutDir>
     </PropertyGroup>
 
 </Project>

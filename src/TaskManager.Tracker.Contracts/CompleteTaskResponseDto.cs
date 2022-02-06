@@ -1,4 +1,3 @@
-﻿namespace TaskManager.Tracker.Contracts
-{
-    public sealed record CompleteTaskResponseDto();
-}
+﻿namespace TaskManager.Tracker.Contracts;
+
+public sealed record CompleteTaskResponseDto;
